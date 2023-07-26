@@ -1,6 +1,7 @@
 const express = require("express");
-const { db } = require("./utils/database"); // no lleva la ex
+const { db } = require("./utils/database"); // n
 const To_dos = require("./models/to_dos.model");
+const cors = require('cors');
 require('dotenv').config();
 
 To_dos;
@@ -19,6 +20,7 @@ db.sync() //
 const app = express();
 
 app.use(express.json()); //
+app.use(cors());
 
 //**************************** CRUD *************************** *//
 
