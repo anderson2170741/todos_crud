@@ -1,8 +1,11 @@
 const express = require("express");
 const { db } = require("./utils/database"); // no lleva la ex
 const To_dos = require("./models/to_dos.model");
+require('dotenv').config();
 
 To_dos;
+
+const PORT = process.env.PORT ?? 3000;
 
 db.authenticate()
   .then(() => {
@@ -117,6 +120,6 @@ app.get("/", (req, res) => {
   res.send("Bienvenido a mi servidor");
 });
 
-app.listen(3000, () => {
-  console.log("Servidor corriendo");
+app.listen(PORT, () => {
+  console.log(`Servidor escunchando en el puerto: ${PORT}`);
 });
